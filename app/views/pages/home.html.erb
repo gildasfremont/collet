@@ -5,20 +5,26 @@
         Bienvenue sur Collet
       </h1>
       
-      <div class="mt-8">
-        <% if user_signed_in? %>
-          <p class="text-lg text-gray-600">
-            Connecté en tant que : <%= current_user.email %>
-          </p>
-          <%= button_to "Se déconnecter", 
-              destroy_user_session_path, 
-              method: :delete,
-              class: "mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" %>
-        <% else %>
-          <%= link_to "Se connecter", 
-              new_user_session_path,
-              class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" %>
-        <% end %>
+      <div class="mt-8 space-y-4">
+        <%= link_to "Voir les objets disponibles", 
+            items_path,
+            class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" %>
+        
+        <div class="mt-4">
+          <% if user_signed_in? %>
+            <p class="text-lg text-gray-600">
+              Connecté en tant que : <%= current_user.email %>
+            </p>
+            <%= button_to "Se déconnecter", 
+                destroy_user_session_path, 
+                method: :delete,
+                class: "mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700" %>
+          <% else %>
+            <%= link_to "Se connecter", 
+                new_user_session_path,
+                class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
