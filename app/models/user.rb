@@ -10,6 +10,8 @@ class User < ApplicationRecord
   # Génère un mot de passe aléatoire pour satisfaire devise
   before_validation :set_random_password, on: :create
   
+  has_many :items, dependent: :destroy
+  
   private
   
   def set_random_password
